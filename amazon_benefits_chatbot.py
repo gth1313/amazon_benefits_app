@@ -41,6 +41,7 @@ def show_ui():
             with st.chat_message("assistant"):
                 st.markdown(response["answer"])    
 
+            # Append user message to chat history
             st.session_state.messages.append({"role": "user", "content": prompt})
             st.session_state.messages.append({"role": "assistant", "content": response["answer"]})
             st.session_state.chat_history.extend([(prompt, response["answer"])])
