@@ -6,10 +6,10 @@ import os
 import streamlit as st
 
 def query(question, chat_history):
-    openai_api_key = os.environ.get("OPEN_AI_KEY")
-    embeddings = OpenAIEmbeddings(api_key = openai_api_key)
+    # openai_api_key = os.environ.get("OPEN_AI_KEY")
+    embeddings = OpenAIEmbeddings()
     new_db = FAISS.load_local("faiss_amazon_index", embeddings, allow_dangerous_deserialization=True)
-    llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0, api_key = openai_api_key)
+    llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0)
 
     query = ConversationalRetrievalChain.from_llm(
         llm=llm, 
