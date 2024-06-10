@@ -4,9 +4,6 @@ from langchain.chains import ConversationalRetrievalChain
 from langchain_community.vectorstores import FAISS
 
 import streamlit as st
-from dotenv import load_dotenv
-load_dotenv()
-
 
 def query(question, chat_history):
     embeddings = OpenAIEmbeddings()
